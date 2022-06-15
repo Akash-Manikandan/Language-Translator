@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+import os
+import pyttsx3
+from gi.repository import Gtk, Pango
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson import LanguageTranslatorV3
 import gi
@@ -7,11 +11,7 @@ gi.require_versions({
     'Gst':  '1.0',
     'AppIndicator3': '0.1',
 })
-from gi.repository import Gtk, Pango
-import pyttsx3
 
-import os
-from dotenv import load_dotenv
 load_dotenv()
 gi.require_version('Gtk', '3.0')
 win = Gtk.Window()
@@ -38,9 +38,9 @@ def onclickedbutton(widget):
     text2 = Gtk.Entry.get_text(entry2)
     if text2 == "":
         text2 = "en-ta"
-    #print(text1,text2)
-   
-    #button1.connect("clicked",SpeakText)
+    # print(text1,text2)
+
+    # button1.connect("clicked",SpeakText)
     authenticator1 = IAMAuthenticator(os.environ.get("authenticator"))
     language_translator = LanguageTranslatorV3(
         version='2018-05-01', authenticator=authenticator1)
