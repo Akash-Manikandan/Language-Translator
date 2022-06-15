@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 import os
 import pyttsx3
-from gi.repository import Gtk, Pango
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson import LanguageTranslatorV3
 import gi
@@ -11,6 +10,7 @@ gi.require_versions({
     'Gst':  '1.0',
     'AppIndicator3': '0.1',
 })
+from gi.repository import Gtk, Pango
 
 load_dotenv()
 gi.require_version('Gtk', '3.0')
